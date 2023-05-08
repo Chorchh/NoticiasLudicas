@@ -64,9 +64,38 @@ export const NavbarList = styled.ul`
     flex-direction: column;
     padding: 40px;
   }
+
+  cursor: pointer;
+  font-size: 20px;
+
+  &::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
-export const NavbarItem = styled.li`
+export const NavbarItem = styled.link`
   cursor: pointer;
   font-size: 20px;
 

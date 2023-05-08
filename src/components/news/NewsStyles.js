@@ -30,7 +30,7 @@ export const NewsContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 100px;
   gap: 20px;
   width: 100%;
   grid-template-columns: 1fr 1fr;
