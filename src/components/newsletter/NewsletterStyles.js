@@ -26,8 +26,8 @@ export const NewsletterInputContainer = styled.div`
 `;
 
 export const NewsletterInput = styled.input`
-  width: 50%;
-  height: 50px;
+  width: 100%;
+  height: 40px;
   border: 1px solid #000000;
   border-radius: 10px;
   color: #000000;

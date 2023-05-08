@@ -58,6 +58,7 @@ export const NavbarList = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 90px;
+  position: relative;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -69,19 +70,11 @@ export const NavbarItem = styled.li`
   cursor: pointer;
   font-size: 20px;
 
-  @media (max-width: 992px) {
-    font-size: 16px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
-
   &::after {
     content: "";
     height: 2px;
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     position: absolute;
     bottom: -10px;
     left: 0;
@@ -93,6 +86,14 @@ export const NavbarItem = styled.li`
   &:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 
