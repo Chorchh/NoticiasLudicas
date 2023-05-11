@@ -14,15 +14,16 @@ export const CategorieBtnContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 50px;
   margin: 20px 0;
+  max-width: 100%;
 `;
 
 export const CategorieBtn = styled(Button)`
   background-color: ${(props) => (props.isSelected ? "#ffffff" : "#000000")};
   color: ${(props) => (props.isSelected ? "#000000" : "#ffffff")};
   display: flex;
-  flex-wrap: wrap;
 `;
 
 export const NewsContainer = styled.div`
@@ -30,7 +31,7 @@ export const NewsContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  margin-top: 100px;
+  margin-top: 50px;
   gap: 20px;
   width: 100%;
   grid-template-columns: 1fr 1fr;
@@ -66,6 +67,7 @@ export const NewsCard = styled.div`
 export const NewsImage = styled.img`
   height: 200px;
   width: 60%;
+  max-width: 100%;
   margin-top: 20px;
 `;
 

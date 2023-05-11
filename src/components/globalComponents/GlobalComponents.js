@@ -15,6 +15,10 @@ export const Section = styled.section`
   margin: 0 auto;
   padding: 50px 0px;
   max-width: 1300px;
+
+  @media (max-width: 992px) {
+    padding: 20px 0;
+  }
 `;
 
 export const Title = styled.h1`

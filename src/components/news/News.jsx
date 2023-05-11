@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { CategorieBtn, CategorieBtnContainer, NewsCard, NewsContainer, NewsImage, NewsSection, NewsText, NewsTitle } from './NewsStyles'
-import { getNews } from '../../redux/categories/CategoriesSlice'
+import { getNews, handleFav } from '../../redux/categories/CategoriesSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Corazon from "../../../src/assets/red-heart_2764-fe0f.png"
 
@@ -8,26 +8,28 @@ const News = () => {
     const [isSelected, setIsSelected] = useState(false)
     const dispatch = useDispatch();
     const selectedNews = useSelector(state => state.categories.news)
+    const favorites = useSelector(state => state.categories.favs)
     useEffect(() => {
         dispatch(getNews())
-    },[])
+        console.log(favorites)
+    },[dispatch])
 
     const handleBtn = (e) => {
         localStorage.setItem("categorie", e.target.dataset.categorie)
         const category = localStorage.getItem("categorie")
         dispatch(getNews(e.target.dataset.categorie))
         setIsSelected(true)
-
         category === e.target.dataset.categorie ? setIsSelected(true) : setIsSelected(false)
-        console.log(category)
-        console.log(e.target.dataset.categorie)
     }
 
     const renderNews = () => {
        return selectedNews.map( (news) => {
             return(
                 <NewsCard key={news.id}>
-                    <img src={Corazon} className="IconFav"/>
+                    <img src={Corazon} 
+                    data-id={news.id} 
+                    className="IconFav" 
+                    onClick={(e) => dispatch(handleFav(e.target.dataset.id))}/>
                     <NewsImage src={news.imagen}/>
                     <NewsTitle>{news.titulo}</NewsTitle>
                     <NewsText>{news.texto}</NewsText>

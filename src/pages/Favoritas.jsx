@@ -1,8 +1,17 @@
 import React from 'react'
+import { FavoriteNews } from '../components/header/HeaderStyles'
 
 const Favoritas = () => {
   return (
-    <div>Favoritas</div>
+    <FavoriteContainer saveFavorites={saveFavorites}>
+    {favorites.map((fav) => {
+          return(
+            <FavoriteNews key={fav.id}>
+              <p>{fav.titulo}</p>
+            </FavoriteNews>
+          )
+        })}
+    </FavoriteContainer>
   )
 }
 

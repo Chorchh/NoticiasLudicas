@@ -15,8 +15,4 @@ export const GlobalStyles = createGlobalStyle`
         scroll-behavior: smooth;
         scroll-padding-top: 100px;
     }
-
-    :root {
-        
-    }
 `;

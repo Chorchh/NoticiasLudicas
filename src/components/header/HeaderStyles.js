@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 80px 0 50px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 2;
@@ -17,7 +17,7 @@ export const HeaderContainer = styled.header`
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding: 0 50px 0 30px;
 
     .MenuIcon {
@@ -39,7 +39,7 @@ export const Navbar = styled.nav`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     position: absolute;
     top: 100px;
     transform: translate(-50%);
@@ -60,7 +60,7 @@ export const NavbarList = styled.ul`
   gap: 90px;
   position: relative;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     flex-direction: column;
     padding: 40px;
   }
@@ -68,57 +68,8 @@ export const NavbarList = styled.ul`
   cursor: pointer;
   font-size: 20px;
 
-  &::after {
-    content: "";
-    height: 2px;
-    width: 100%;
-    background: #ffffff;
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
   @media (max-width: 992px) {
-    font-size: 16px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
-`;
-
-export const NavbarItem = styled.link`
-  cursor: pointer;
-  font-size: 20px;
-
-  &::after {
-    content: "";
-    height: 2px;
-    width: 100%;
-    background: #ffffff;
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-
-  @media (max-width: 992px) {
-    font-size: 16px;
+    font-size: 24px;
   }
 
   @media (max-width: 768px) {
@@ -127,11 +78,38 @@ export const NavbarItem = styled.link`
 `;
 
 export const NavbarUser = styled.div`
-  height: 70%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   cursor: pointer;
   gap: 20px;
+  border: 1px solid red;
+`;
+
+export const FavoriteContainer = styled.ul`
+  display: ${(props) => (props.saveFavorites ? "flex" : "none")};
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  max-width: 992px;
+  background-color: #000000;
+  height: ${(props) => (props.saveFavorites ? "100vh" : "0")};
+  width: ${(props) => (props.saveFavorites ? "50vw" : "0")};
+  visibility: ${(props) => (props.saveFavorites ? "visible" : "hidden")};
+  opacity: ${(props) => (props.saveFavorites ? "0.6" : "0")};
+  transition: all 0.3s ease-in-out;
+`;
+
+export const FavoriteNews = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid red;
+  background-color: red;
 `;

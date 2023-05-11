@@ -16,6 +16,7 @@ export const NewsletterTitle = styled.h2`
   font-weight: 700;
   color: #000000;
   text-align: center;
+  margin-bottom: 20px;
 `;
 
 export const NewsletterInputContainer = styled.div`
@@ -23,6 +24,7 @@ export const NewsletterInputContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 20px;
+  margin-bottom: 20px;
 `;
 
 export const NewsletterInput = styled.input`

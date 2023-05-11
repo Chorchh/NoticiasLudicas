@@ -3,6 +3,7 @@ import Data from "../../data/Data";
 
 const INITIAL_STATE = {
   news: [],
+  favs: [],
   selectedCategory: null,
 };
 
@@ -22,9 +23,15 @@ export const categoriesSlice = createSlice({
         return state;
       }
     },
+    handleFav: (state, action) => {
+      const favNewsFiltered = Data.find((news) => news.id == action.payload);
+      state.favs = [...state.favs, favNewsFiltered];
+      console.log(state.favs);
+      return state;
+    },
   },
 });
 
-export const { getNews } = categoriesSlice.actions;
+export const { getNews, handleFav } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

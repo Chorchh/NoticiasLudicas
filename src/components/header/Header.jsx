@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
-import { HeaderContainer, Logo, Navbar, NavbarItem, NavbarList, NavbarUser } from './HeaderStyles'
+import { FavoriteContainer, FavoriteNews, HeaderContainer, Logo, Navbar, NavbarList, NavbarUser } from './HeaderStyles'
 import logo from "../../assets/logo.png";
-import {FaSearch, FaHeart} from "react-icons/fa"
+import {FaHeart} from "react-icons/fa"
 import {GiHamburgerMenu} from "react-icons/gi"
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
+  const [saveFavorites, setSaveFavorites] = useState(false)
+  const favorites = useSelector(state => state.categories.favs)
+  console.log(saveFavorites);
   const toPage = page => () => {
     setPage(page)
+  }
+
+  const handleBtnFav = () => {
+    setSaveFavorites(!saveFavorites)
+    console.log(favorites)
   }
 
   return (
@@ -32,18 +41,27 @@ const Header = () => {
                     className="NavbarItem"
                     >Noticias</Link>
                     <Link
-                    to="/novedades"
-                    onClick={toPage("novedades")}
-                    className="NavbarItem"
-                    >Novedades</Link>
-                    <Link
                     to="/favoritos"
                     onClick={toPage("favoritos")}
                     className="NavbarItem"
                     >Favoritos</Link>
                 </NavbarList>
             </Navbar>
-            <NavbarUser><FaSearch/><FaHeart to="/favoritos" onClick={toPage("favoritos")}/></NavbarUser>
+            <NavbarUser>
+              <FaHeart
+            onClick={() => handleBtnFav()} 
+              className="BtnFav"/>
+
+              </NavbarUser>
+              <FavoriteContainer saveFavorites={saveFavorites}>
+              {favorites.map((fav) => {
+                    return(
+                      <FavoriteNews key={fav.id}>
+                        <p>{fav.titulo}</p>
+                      </FavoriteNews>
+                    )
+                  })}
+              </FavoriteContainer>
         </HeaderContainer>
     </>
   )

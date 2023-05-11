@@ -5,11 +5,11 @@ export const HeroSection = styled(Section)`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 150px;
 
   @media (max-width: 992px) {
     flex-direction: column;
-    margin-top: 200px;
+    margin-top: 150px;
   }
 `;
 
