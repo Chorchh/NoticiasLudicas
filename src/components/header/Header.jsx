@@ -10,14 +10,12 @@ const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [saveFavorites, setSaveFavorites] = useState(false)
   const favorites = useSelector(state => state.categories.favs)
-  console.log(saveFavorites);
   const toPage = page => () => {
     setPage(page)
   }
 
   const handleBtnFav = () => {
     setSaveFavorites(!saveFavorites)
-    console.log(favorites)
   }
 
   return (
@@ -57,7 +55,8 @@ const Header = () => {
               {favorites.map((fav) => {
                     return(
                       <FavoriteNews key={fav.id}>
-                        <p>{fav.titulo}</p>
+                        <img src={fav.imagen} alt={fav.titulo} className="FavImg"/>
+                        <p className="FavTitle">{fav.titulo}</p>
                       </FavoriteNews>
                     )
                   })}

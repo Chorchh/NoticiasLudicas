@@ -85,7 +85,6 @@ export const NavbarUser = styled.div`
   font-size: 20px;
   cursor: pointer;
   gap: 20px;
-  border: 1px solid red;
 `;
 
 export const FavoriteContainer = styled.ul`
@@ -96,20 +95,32 @@ export const FavoriteContainer = styled.ul`
   position: absolute;
   top: 100px;
   right: 0;
-  max-width: 992px;
   background-color: #000000;
   height: ${(props) => (props.saveFavorites ? "100vh" : "0")};
   width: ${(props) => (props.saveFavorites ? "50vw" : "0")};
   visibility: ${(props) => (props.saveFavorites ? "visible" : "hidden")};
-  opacity: ${(props) => (props.saveFavorites ? "0.6" : "0")};
-  transition: all 0.3s ease-in-out;
+  opacity: ${(props) => (props.saveFavorites ? "0.8" : "0")};
+  gap: 20px;
 `;
 
 export const FavoriteNews = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  border: 1px solid red;
-  background-color: red;
+  flex-direction: space-between;
+  font-size: 16px;
+  padding: 10px;
+  gap: 30px;
+  background-color: grey;
+  cursor: pointer;
+
+  .FavImg {
+    height: 100px;
+    border-radius: 10px;
+    width: 150px;
+  }
+
+  .FavTitle {
+    color: #000000;
+  }
 `;

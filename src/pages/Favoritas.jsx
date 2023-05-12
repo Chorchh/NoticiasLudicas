@@ -1,7 +1,10 @@
 import React from 'react'
-import { FavoriteNews } from '../components/header/HeaderStyles'
+import { FavoriteContainer, FavoriteNews } from '../components/header/HeaderStyles'
+
 
 const Favoritas = () => {
+  const [saveFavorites, setSaveFavorites] = useState(false)
+  const favorites = useSelector(state => state.categories.favs)
   return (
     <FavoriteContainer saveFavorites={saveFavorites}>
     {favorites.map((fav) => {
