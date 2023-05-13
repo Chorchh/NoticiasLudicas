@@ -4,7 +4,9 @@ import logo from "../../assets/logo.png";
 import {FaHeart} from "react-icons/fa"
 import {GiHamburgerMenu} from "react-icons/gi"
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {GrTrash} from "react-icons/gr"
+import { deleteFav } from '../../redux/categories/CategoriesSlice';
 
 const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -17,6 +19,8 @@ const Header = () => {
   const handleBtnFav = () => {
     setSaveFavorites(!saveFavorites)
   }
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -57,6 +61,7 @@ const Header = () => {
                       <FavoriteNews key={fav.id}>
                         <img src={fav.imagen} alt={fav.titulo} className="FavImg"/>
                         <p className="FavTitle">{fav.titulo}</p>
+                        <GrTrash data-id={fav.id} className="FavTrash" onClick={(e) => dispatch(deleteFav(e.target.dataset.id))}/>
                       </FavoriteNews>
                     )
                   })}

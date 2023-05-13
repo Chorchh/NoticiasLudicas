@@ -1,21 +1,28 @@
-import React from 'react'
-import { FavoriteContainer, FavoriteNews } from '../components/header/HeaderStyles'
-
+import React from "react"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { NewsCard, NewsContainer, NewsImage, NewsText, NewsTitle } from "../components/news/NewsStyles"
+import { handleFav } from "../redux/categories/CategoriesSlice";
 
 const Favoritas = () => {
-  const [saveFavorites, setSaveFavorites] = useState(false)
-  const favorites = useSelector(state => state.categories.favs)
-  return (
-    <FavoriteContainer saveFavorites={saveFavorites}>
-    {favorites.map((fav) => {
-          return(
-            <FavoriteNews key={fav.id}>
-              <p>{fav.titulo}</p>
-            </FavoriteNews>
-          )
-        })}
-    </FavoriteContainer>
-  )
+const favorites = useSelector(state => state.categories.favs)
+const dispatch = useDispatch();
+
+useEffect(() => {dispatch(handleFav())} ,[])
+const renderFavs = () => {
+    return favorites.map( (favs) => {
+      console.log(handleFav)
+         return(
+             <NewsCard key={favs.id}>
+                 <NewsImage src={favs.imagen}/>
+                 <NewsTitle>{favs.titulo}</NewsTitle>
+                 <NewsText>{favs.texto}</NewsText>
+             </NewsCard>
+         )
+        }
+    )}
+return (<NewsContainer>{renderFavs()}</NewsContainer>)
 }
+
 
 export default Favoritas

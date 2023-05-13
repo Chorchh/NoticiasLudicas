@@ -26,12 +26,20 @@ export const categoriesSlice = createSlice({
     handleFav: (state, action) => {
       const favNewsFiltered = Data.find((news) => news.id == action.payload);
       state.favs = [...state.favs, favNewsFiltered];
-      console.log(state.favs);
+      return state;
+    },
+    deleteFav: (state, action) => {
+      console.log(action.payload);
+      const favNewsFiltered = state.favs.filter(
+        (news) => news.id != action.payload
+      );
+      console.log(action.payload);
+      state.favs = favNewsFiltered;
       return state;
     },
   },
 });
 
-export const { getNews, handleFav } = categoriesSlice.actions;
+export const { getNews, handleFav, deleteFav } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

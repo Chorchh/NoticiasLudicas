@@ -99,7 +99,7 @@ export const FavoriteContainer = styled.ul`
   height: ${(props) => (props.saveFavorites ? "100vh" : "0")};
   width: ${(props) => (props.saveFavorites ? "50vw" : "0")};
   visibility: ${(props) => (props.saveFavorites ? "visible" : "hidden")};
-  opacity: ${(props) => (props.saveFavorites ? "0.8" : "0")};
+  opacity: ${(props) => (props.saveFavorites ? "1" : "0")};
   gap: 20px;
 `;
 
@@ -113,6 +113,12 @@ export const FavoriteNews = styled.li`
   gap: 30px;
   background-color: grey;
   cursor: pointer;
+  width: 100%;
+  background-color: #ffffff;
+
+  p {
+    color: red;
+  }
 
   .FavImg {
     height: 100px;
@@ -122,5 +128,14 @@ export const FavoriteNews = styled.li`
 
   .FavTitle {
     color: #000000;
+    font-weight: 700;
+    max-width: 33%;
+  }
+
+  .FavTrash {
+    width: 100%;
+    font-size: 30px;
+    max-width: 30px;
+    min-width: 20px;
   }
 `;
