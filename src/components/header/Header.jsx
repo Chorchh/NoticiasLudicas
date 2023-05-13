@@ -34,17 +34,14 @@ const Header = () => {
                 <NavbarList>
                     <Link
                     to="/"
-                    onClick={toPage("home")}
                     className="NavbarItem"                 
                     >Inicio</Link>
                     <Link 
                     to="/noticias"
-                    onClick={toPage("noticias")}
                     className="NavbarItem"
                     >Noticias</Link>
                     <Link
                     to="/favoritos"
-                    onClick={toPage("favoritos")}
                     className="NavbarItem"
                     >Favoritos</Link>
                 </NavbarList>

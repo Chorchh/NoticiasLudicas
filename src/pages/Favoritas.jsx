@@ -6,9 +6,7 @@ import { handleFav } from "../redux/categories/CategoriesSlice";
 
 const Favoritas = () => {
 const favorites = useSelector(state => state.categories.favs)
-const dispatch = useDispatch();
 
-useEffect(() => {dispatch(handleFav())} ,[])
 const renderFavs = () => {
     return favorites.map( (favs) => {
       console.log(handleFav)
