@@ -1,15 +1,14 @@
 import React from "react"
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { NewsCard, NewsContainer, NewsImage, NewsText, NewsTitle } from "../components/news/NewsStyles"
-import { handleFav } from "../redux/categories/CategoriesSlice";
+import Favs from "../components/favs/Favs";
 
 const Favoritas = () => {
 const favorites = useSelector(state => state.categories.favs)
 
 const renderFavs = () => {
+    if (favorites.length) {
     return favorites.map( (favs) => {
-      console.log(handleFav)
          return(
              <NewsCard key={favs.id}>
                  <NewsImage src={favs.imagen}/>
@@ -18,7 +17,10 @@ const renderFavs = () => {
              </NewsCard>
          )
         }
-    )}
+    )} else {
+        return (<Favs/>)
+    }
+}
 return (<NewsContainer>{renderFavs()}</NewsContainer>)
 }
 

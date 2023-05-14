@@ -4,7 +4,9 @@ import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
 import CategoriesSlice from "./categories/CategoriesSlice";
 
-const reducers = combineReducers({});
+const reducers = combineReducers({
+  categories: CategoriesSlice,
+});
 
 const persistConfig = {
   key: "root",
@@ -14,10 +16,7 @@ const persistConfig = {
 const presistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
-  reducer: {
-    presistedReducer,
-    categories: CategoriesSlice,
-  },
+  reducer: presistedReducer,
 });
 
 export const persistor = persistStore(store);

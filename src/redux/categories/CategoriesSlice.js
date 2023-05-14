@@ -29,11 +29,9 @@ export const categoriesSlice = createSlice({
       return state;
     },
     deleteFav: (state, action) => {
-      console.log(action.payload);
       const favNewsFiltered = state.favs.filter(
         (news) => news.id != action.payload
       );
-      console.log(action.payload);
       state.favs = favNewsFiltered;
       return state;
     },

@@ -5,22 +5,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import Corazon from "../../../src/assets/red-heart_2764-fe0f.png"
 
 const News = () => {
+    const [selectedCategory, setSelectedCategory] = useState("")
     const [isSelected, setIsSelected] = useState(false)
     const dispatch = useDispatch();
     const selectedNews = useSelector(state => state.categories.news)
-    const favorites = useSelector(state => state.categories.favs)
     useEffect(() => {
         dispatch(getNews())
-        console.log(favorites)
     },[dispatch])
 
+    // const handleBtn = (e) => {
+    //     localStorage.setItem("categorie", e.target.dataset.categorie)
+    //     const category = localStorage.getItem("categorie")
+    //     dispatch(getNews(e.target.dataset.categorie))
+    //     setIsSelected(true)
+    //     category === e.target.dataset.categorie ? setIsSelected(true) : setIsSelected(false)
+    // }
+
     const handleBtn = (e) => {
-        localStorage.setItem("categorie", e.target.dataset.categorie)
-        const category = localStorage.getItem("categorie")
-        dispatch(getNews(e.target.dataset.categorie))
-        setIsSelected(true)
-        category === e.target.dataset.categorie ? setIsSelected(true) : setIsSelected(false)
-    }
+        const category = e.target.dataset.categorie;
+        localStorage.setItem("categorie", category);
+        setSelectedCategory(category);
+        setIsSelected(!isSelected);
+        dispatch(getNews(category));
+      };
 
     const renderNews = () => {
        return selectedNews.map( (news) => {
@@ -46,25 +53,25 @@ const News = () => {
             data-categorie="juegos de mesa"
             onClick={(e) => 
             handleBtn(e)}
-            isSelected={isSelected}
+            isSelected={selectedCategory === "juegos de mesa"}
             >Juegos de mesa</CategorieBtn>
             <CategorieBtn
             data-categorie="juegos de rol"
             onClick={(e) => 
             handleBtn(e)}
-            isSelected={isSelected}
+            isSelected={selectedCategory === "juegos de rol"}
             >Juegos de rol</CategorieBtn>
             <CategorieBtn
             data-categorie="noticias nacionales"
             onClick={(e) => 
             handleBtn(e)}
-            isSelected={isSelected}
+            isSelected={selectedCategory === "noticias nacionales"}
             >Noticias nacionales</CategorieBtn>
             <CategorieBtn
             data-categorie="noticias internacionales"
             onClick={(e) => 
             handleBtn(e)}
-            isSelected={isSelected}
+            isSelected={selectedCategory === "noticias internacionales"}
             >Noticias internacionales</CategorieBtn>
         </CategorieBtnContainer>
         <NewsContainer>
