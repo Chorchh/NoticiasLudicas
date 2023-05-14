@@ -23,6 +23,7 @@ export const CategorieBtnContainer = styled.div`
 export const CategorieBtn = styled(Button)`
   background-color: ${(props) => (props.isSelected ? "#ffffff" : "#000000")};
   color: ${(props) => (props.isSelected ? "#000000" : "#ffffff")};
+  font-weight: 700;
   display: flex;
 `;
 

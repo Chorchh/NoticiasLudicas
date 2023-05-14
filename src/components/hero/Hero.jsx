@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 import HeroImg from "../../assets/hero-img.jpg"
-import { HeroSection, HeroTitle, HeroContainer, HeroImage, HeroSubtitle } from './HeroStyles'
+import { HeroSection, HeroTitle, HeroContainer, HeroImage, HeroSubtitle } from "./HeroStyles"
 
 const Hero = () => {
   return (

@@ -1,5 +1,5 @@
-import React from 'react'
-import { FooterContainer, FooterText } from './FooterStyles'
+import React from "react"
+import { FooterContainer, FooterText } from "./FooterStyles"
 
 const Footer = () => {
   return (

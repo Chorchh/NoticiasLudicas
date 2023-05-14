@@ -25,6 +25,10 @@ export const NewsletterInputContainer = styled.div`
   align-items: center;
   gap: 20px;
   margin-bottom: 20px;
+
+  .ErrorMsg {
+    color: red;
+  }
 `;
 
 export const NewsletterInput = styled.input`

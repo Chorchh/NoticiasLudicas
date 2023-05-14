@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getNews } from '../redux/categories/CategoriesSlice'
-import { NewsCard, NewsImage, NewsText, NewsTitle } from '../components/news/NewsStyles'
-import { NewsContainer } from '../components/news/NewsStyles'
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { getNews } from "../redux/categories/CategoriesSlice"
+import { NewsCard, NewsImage, NewsText, NewsTitle } from "../components/news/NewsStyles"
+import { NewsContainer } from "../components/news/NewsStyles"
 
 const Noticias = () => {
     const selectedNews = useSelector(state => state.categories.news)

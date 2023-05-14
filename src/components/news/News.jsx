@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { CategorieBtn, CategorieBtnContainer, NewsCard, NewsContainer, NewsImage, NewsSection, NewsText, NewsTitle } from './NewsStyles'
-import { getNews, handleFav } from '../../redux/categories/CategoriesSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from "react"
+import { CategorieBtn, CategorieBtnContainer, NewsCard, NewsContainer, NewsImage, NewsSection, NewsText, NewsTitle } from "./NewsStyles"
+import { getNews, handleFav } from "../../redux/categories/CategoriesSlice"
+import { useDispatch, useSelector } from "react-redux"
 import Corazon from "../../../src/assets/red-heart_2764-fe0f.png"
 
 const News = () => {
@@ -12,14 +12,6 @@ const News = () => {
     useEffect(() => {
         dispatch(getNews())
     },[dispatch])
-
-    // const handleBtn = (e) => {
-    //     localStorage.setItem("categorie", e.target.dataset.categorie)
-    //     const category = localStorage.getItem("categorie")
-    //     dispatch(getNews(e.target.dataset.categorie))
-    //     setIsSelected(true)
-    //     category === e.target.dataset.categorie ? setIsSelected(true) : setIsSelected(false)
-    // }
 
     const handleBtn = (e) => {
         const category = e.target.dataset.categorie;

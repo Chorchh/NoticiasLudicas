@@ -1,5 +1,5 @@
-import React from 'react'
-import { PageNotFoundContainer, PageNotFoundText } from './FavsStyles'
+import React from "react"
+import { PageNotFoundContainer, PageNotFoundText } from "./FavsStyles"
 
 const Favs = () => {
     return (
